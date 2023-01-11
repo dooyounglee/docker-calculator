@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage("Checkout") {
+            steps {
+                git url: 'https://github.com/dooyounglee/docker-calculator.git', branch: 'master'
+            }
+        }
+        stage("Compile") {
+            steps {
+                sh "chmod +x gradlew"
+                sh "./gradlew clean build"
+                sh "./gradlew compileJava"
+            }
+        }
+    }
+}
