@@ -41,7 +41,8 @@ pipeline {
         }
         stage ("Docker build") {
             steps {
-                sh "usermod -a -G docker jenkins"
+                sh "groupadd docker"
+                sh "usermod -a -G docker doo"
                 sh "docker build -t calculator ."
             }
         }
