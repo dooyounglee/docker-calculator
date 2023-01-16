@@ -41,6 +41,7 @@ pipeline {
         }
         stage ("Docker build") {
             steps {
+                sh "usermod -a -G docker jenkins"
                 sh "docker build -t calculator ."
             }
         }
