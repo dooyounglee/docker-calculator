@@ -41,7 +41,7 @@ pipeline {
         }
         stage ("Docker build") {
             steps {
-                sh "groupadd docker --user 0:0"
+                sh "sudo groupadd docker"
                 sh "usermod -a -G docker doo"
                 sh "docker build -t calculator ."
             }
