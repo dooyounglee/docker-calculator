@@ -41,7 +41,7 @@ pipeline {
         }
         stage ("Docker build") {
             steps {
-                sh "docker build -t gostbaducking1/calculator ."
+                sh "docker build -t calculator ."
             }
         }
     }
