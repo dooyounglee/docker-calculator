@@ -34,14 +34,13 @@ pipeline {
                 ])
             }
         }
-        stage ("Package") {
+        /*stage ("Package") {
             steps {
                 sh "./gradlew build"
             }
-        }
+        }*/
         stage ("Docker build") {
             steps {
-                sh "sudo usermod -a -G docker doo"
                 sh "docker build -t calculator ."
             }
         }
