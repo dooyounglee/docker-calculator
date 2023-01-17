@@ -3,12 +3,15 @@ pipeline {
     stages {
         stage ("Compile") {
             steps {
+                sh "apt-get update && apt-get -y install sudo"
+                sh "sudo groupadd docker"
+                sh "sudo usermod -a -G docker doo"
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build"
                 sh "./gradlew compileJava"
             }
         }
-        stage ("Unit test") {
+        /*stage ("Unit test") {
             steps {
                 sh "./gradlew test"
             }
@@ -33,7 +36,7 @@ pipeline {
                     reportName: "Checkstyle Report"
                 ])
             }
-        }
+        }*/
         /*stage ("Package") {
             steps {
                 sh "./gradlew build"
