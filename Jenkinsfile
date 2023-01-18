@@ -6,6 +6,7 @@ pipeline {
                 /*sh "sudo apt-get update && apt-get -y install sudo"
                 sh "sudo groupadd docker"
                 sh "sudo usermod -a -G docker doo"*/
+                sh "docker --version"
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build"
                 sh "./gradlew compileJava"
