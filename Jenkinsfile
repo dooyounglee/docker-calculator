@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage ("Compile") {
             steps {
-                sh "sudo apt-get update && apt-get -y install sudo"
+                /*sh "sudo apt-get update && apt-get -y install sudo"
                 sh "sudo groupadd docker"
-                sh "sudo usermod -a -G docker doo"
+                sh "sudo usermod -a -G docker doo"*/
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build"
                 sh "./gradlew compileJava"
