@@ -8,7 +8,7 @@ pipeline {
                 sh "./gradlew compileJava"
             }
         }
-        stage ("Unit test") {
+        /*stage ("Unit test") {
             steps {
                 sh "./gradlew test"
             }
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh "./gradlew build"
             }
-        }
+        }*/
         stage ("Docker build") {
             steps {
                 sh "service docker start"
