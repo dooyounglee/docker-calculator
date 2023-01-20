@@ -41,8 +41,9 @@ pipeline {
         }*/
         stage ("Docker build") {
             steps {
-                sh "echo jenkins | sudo -S service docker start && docker build -t calculator ."
-                // sh "docker build -t calculator ."
+                sh "echo jenkins | sudo -S service docker start"
+                sh "chmod 666 /var/run/docker.sock"
+                sh "docker build -t calculator ."
             }
         }
     }
