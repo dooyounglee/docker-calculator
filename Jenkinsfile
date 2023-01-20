@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage ("Compile") {
+        /*stage ("Compile") {
             steps {
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build"
                 sh "./gradlew compileJava"
             }
         }
-        /*stage ("Unit test") {
+        stage ("Unit test") {
             steps {
                 sh "./gradlew test"
             }
