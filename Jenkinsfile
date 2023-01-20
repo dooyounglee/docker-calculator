@@ -41,7 +41,7 @@ pipeline {
         }*/
         stage ("Docker build") {
             steps {
-                sh "sudo service docker start"
+                sh "echo 'jenkins' | sudo service docker start"
                 sh "docker build -t calculator ."
             }
         }
