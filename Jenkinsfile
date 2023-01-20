@@ -42,7 +42,7 @@ pipeline {
         stage ("Docker build") {
             steps {
                 sh "echo jenkins | sudo -S service docker start"
-                sh "sudo chmod 666 /var/run/docker.sock"
+                sh "echo jenkins | sudo -S chmod 666 /var/run/docker.sock"
                 sh "docker build -t calculator ."
             }
         }
