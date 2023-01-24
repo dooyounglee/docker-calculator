@@ -43,7 +43,7 @@ pipeline {
             steps {
                 // sh "echo jenkins | sudo -S service docker start && echo jenkins | sudo -S chmod 666 /var/run/docker.sock && docker build -t calculator ."
                 // sh "echo jenkins | sudo -S chmod 666 /var/run/docker.sock"
-                sh "docker build -t /var/jenkins_home/workspace/calculator ."
+                sh "sudo docker build -t calculator ./var/jenkins_home/workspace/calculator"
             }
         }
     }
