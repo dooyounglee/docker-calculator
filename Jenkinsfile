@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage ("Compile") {
+        /*stage ("Compile") {
             steps {
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build"
                 sh "./gradlew compileJava"
             }
         }
-        /*stage ("Unit test") {
+        stage ("Unit test") {
             steps {
                 sh "./gradlew test"
             }
@@ -43,7 +43,7 @@ pipeline {
             steps {
                 // sh "echo jenkins | sudo -S service docker start && echo jenkins | sudo -S chmod 666 /var/run/docker.sock && docker build -t calculator ."
                 // sh "echo jenkins | sudo -S chmod 666 /var/run/docker.sock"
-                sh "echo jenkins | sudo -S docker build -t calculator ./var/jenkins_home/workspace/calculator"
+                sh "echo jenkins | sudo -S docker build -t calculator /var/jenkins_home/workspace/calculator"
             }
         }
     }
