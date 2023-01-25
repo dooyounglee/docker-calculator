@@ -48,7 +48,7 @@ pipeline {
         }
         stage ("Docker push") {
             steps {
-                sh "docker push gostbaducking1/calculator"
+                sh "echo jenkins | sudo -S docker push gostbaducking1/calculator"
             }
         }
     }
