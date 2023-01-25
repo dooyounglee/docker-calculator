@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ("Compile") {
+        /*stage ("Compile") {
             steps {
                 sh "chmod +x gradlew"
                 sh "./gradlew clean build"
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh "./gradlew build"
             }
-        }
+        }*/
         stage ("Docker build") {
             steps {
                 // sh "echo jenkins | sudo -S service docker start && echo jenkins | sudo -S chmod 666 /var/run/docker.sock && docker build -t calculator ."
