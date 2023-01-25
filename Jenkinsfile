@@ -46,5 +46,10 @@ pipeline {
                 sh "echo jenkins | sudo -S docker build -t calculator /var/jenkins_home/workspace/calculator"
             }
         }
+        stage ("Docker push") {
+            steps {
+                sh "docker push gostbaducking1/calculator"
+            }
+        }
     }
 }
