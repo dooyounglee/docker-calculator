@@ -46,6 +46,11 @@ pipeline {
                 sh "echo jenkins | sudo -S docker build -t gostbaducking1/calculator /var/jenkins_home/workspace/calculator"
             }
         }
+        stage ("Docker hub login") {
+            steps {
+                sh "echo jenkins | cat /var/jenkins_home/workspace/password.txt | sudo -S docker login --username gostbaducking1 --password-stdin"
+            }
+        }
         stage ("Docker push") {
             steps {
                 sh "echo jenkins | sudo -S docker push gostbaducking1/calculator"
