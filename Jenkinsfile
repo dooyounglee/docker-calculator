@@ -56,5 +56,16 @@ pipeline {
                 sh "echo jenkins | sudo -S docker push gostbaducking1/calculator"
             }
         }
+        stage ("Deploy to staging") {
+            steps {
+                sh "echo jenkins | sudo -S docker run -d --rm -p 8765:8080 --name calculator gostbaducking1/calculator"
+            }
+        }
+        stage ("Acceptance test") {
+            steps {
+                sleep 60
+                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+            }
+        }
     }
 }
