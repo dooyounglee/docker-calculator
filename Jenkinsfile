@@ -48,7 +48,7 @@ pipeline {
         }
         stage ("Docker hub login") {
             steps {
-                sh "echo jenkins | cat /var/jenkins_home/workspace/password.txt | sudo -S docker login --username gostbaducking1 --password-stdin"
+                sh "cat /var/jenkins_home/workspace/password.txt | sudo -stdin docker login --username gostbaducking1 --password-stdin"
             }
         }
         stage ("Docker push") {
