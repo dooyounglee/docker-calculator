@@ -58,6 +58,7 @@ pipeline {
         }
         stage ("Deploy to staging") {
             steps {
+                sh "echo jenkins | sudo -S docker rm 624bed6f8dec0dddf0c291d003dad7aba1c139e32332a915540b50db84b93287"
                 sh "echo jenkins | sudo -S docker run -d --rm -p 8765:8080 --name calculator gostbaducking1/calculator"
             }
         }
