@@ -65,7 +65,8 @@ pipeline {
         stage ("Acceptance test") {
             steps {
                 sleep 60
-                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+                //sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+                sh "chmod +x acceptance_test.sh && ./gradlew acceptanceTest -DcalculatorUrl=http://host.docker.internal:8765"
             }
         }
     }
