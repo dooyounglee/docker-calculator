@@ -62,11 +62,19 @@ pipeline {
                 sh "echo jenkins | sudo -S docker run -d --rm -p 8765:8080 --name calculator gostbaducking1/calculator"
             }
         }
-        stage ("Acceptance test") {
+        stage ("wait starting app") {
             steps {
                 sleep 60
-                //sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
-                sh "chmod +x acceptance_test.sh && ./gradlew acceptanceTest -DcalculatorUrl=http://host.docker.internal:8765"
+            }
+        }
+        stage ("Acceptance test1") {
+            steps {
+                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+            }
+        }
+        stage ("Acceptance test2") {
+            steps {
+                sh "./gradlew acceptanceTest -DcalculatorUrl=http://host.docker.internal:8765"
             }
         }
     }
